@@ -9,6 +9,7 @@
     "lint": "yarn eslint --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
     "lint:fix": "yarn eslint --fix --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
     "ember": "yarn ember-template-lint --no-error-on-unmatched-pattern javascripts",
+    "ember:fix": "yarn ember-template-lint --fix --no-error-on-unmatched-pattern javascripts",
     "prettify": "yarn prettier --list-different '{javascripts,common,mobile}/**/*.{scss,js,es6,hbs}'",
     "prettify:fix": "yarn prettier --write '{javascripts,common,mobile}/**/*.{scss,js,es6,hbs}'"
   },
