@@ -1,4 +1,4 @@
-# **Theme Name**
+# **Discourse Category Jumbotron**
 
 **Theme Summary**
 
