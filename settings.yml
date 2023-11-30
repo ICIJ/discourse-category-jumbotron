@@ -1,4 +1,78 @@
-example_setting:
+routes:
+  default: discovery
+  type: list
+
+show_description:
   default: true
-  description:
-    en: A description of a setting.
+  description: 'Show description from "About This Category" post'
+
+max_level:
+  default: 3
+  min: 0
+  max: 4
+  description: Maximum category nesting level to show the jumbotron.
+
+plugin_outlet:
+  default: "above-main-container"
+  type: "enum"
+  choices:
+    - "below-site-header"
+    - "above-site-header"
+    - "above-main-container"
+    - "header-list-container-bottom"
+  description: "Changes the position of the jumobtron on the page."
+  refresh: true
+
+show_category_icon:
+  default: true
+  description: Show category icon from the <a href="https://meta.discourse.org/t/category-icons/104683" target="_blank">Discourse Category Icons component</a>
+
+show_lock_icon:
+  default: true
+  description: Show a lock icon for category with read restrictions.
+
+flex_direction:
+  default: "row"
+  type: "enum"
+  choices:
+    - "column"
+    - "column-reverse"
+    - "row"
+    - "row-reverse"    
+  description: "Changes the direction of the jumbotron items."
+
+justify_content:
+  default: "start"
+  type: "enum"
+  choices:
+    - "start"
+    - "center"
+    - "end"
+  description: "Changes the alignment of the jumbotron items on the main Axis."
+
+align_items:
+  default: "center"
+  type: "enum"
+  choices:
+    - "start"
+    - "center"
+    - "end"
+  description: "Changes the alignment of the jumbotron items on the Cross Axis."
+
+logo_size:
+  default: "medium"
+  type: "enum"
+  choices:
+    - "small"
+    - "medium"
+    - "large"
+    - "original"
+  description: "Constraints the width of the logo."
+
+color_layout:
+  default: "border"
+  type: "enum"
+  choices:
+    - "none"
+    - "border"
+    - "fill"

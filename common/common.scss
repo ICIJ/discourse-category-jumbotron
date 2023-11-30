@@ -1,1 +1,104 @@
-// Theme's SCSS
+.category-heading {
+  display: none;
+}
+
+.category-jumbotron {
+  background: var(--primary-low);
+  padding: 1.5rem 0.75rem;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .above-main-container-outlet & {
+    margin-bottom: 1.5rem;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: var(--d-max-width);
+    margin: 0 -0.75rem;
+
+    &__content {
+      margin: 0 .75rem 1.5rem;
+      flex-grow: 1;
+
+      &__heading {
+
+        &__name {
+          .category-icon-widget-wrapper {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    &__logo {
+      margin: 0 .75rem 1.5rem;
+    }
+  }
+  
+  &--color-layout-border {
+    border-left: 6px solid var(--category-color);
+  }
+  
+  &--color-layout-fill {
+    background: var(--category-color, var(--primary-low));
+    color: var(--category-text-color);
+
+  &--color-layout-border {
+    border-left: 4px solid var(--category-color, var(--primary-low));
+  }
+  }
+
+  &--flex-column-reverse &__grid {
+    flex-direction: column-reverse;
+  }
+  
+  &--flex-row &__grid {
+    flex-direction: row;
+  }
+
+  &--flex-row-reverse &__grid {
+    flex-direction: row-reverse;
+  }
+  
+  &--align-items-start &__grid {
+    align-items: flex-start;
+  }
+  
+  &--align-items-end &__grid {
+    align-items: flex-end;
+  }
+
+  &--justify-content-start &__grid {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  &--justify-content-end &__grid {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  &--logo-small &__grid__logo img {
+    width: 100%;
+    max-width: 100px;
+  }
+
+  &--logo-medium &__grid__logo img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  &--logo-large &__grid__logo img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+

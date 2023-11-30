@@ -1,5 +1,19 @@
 {
   "private": true,
+  "name": "discourse-category-jumbotron",
+  "version": "0.0.1",
+  "repository": "https://github.com/ICIJ/discourse-category-jumbotron",
+  "author": "ICIJ",
+  "license": "MIT",
+  "scripts": {
+    "lint": "yarn eslint --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
+    "lint:fix": "yarn eslint --fix --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
+    "ember": "yarn ember-template-lint --no-error-on-unmatched-pattern javascripts",
+    "prettier:assets": "yarn prettier --list-different 'javascripts/**/*.{scss,js,es6,hbs}'",
+    "prettier:assets:fix": "yarn prettier --write 'javascripts/**/*.{scss,js,es6,hbs}'",
+    "prettier:tests": "yarn prettier --list-different 'tests/**/*.{scss,js,es6,hbs}'",
+    "prettier:tests:fix": "yarn prettier --write 'tests/**/*.{scss,js,es6,hbs}'"
+  },
   "devDependencies": {
     "@discourse/lint-configs": "2.25.0",
     "ember-template-lint": "7.8.1",
