@@ -4,7 +4,11 @@ routes:
 
 show_description:
   default: true
-  description: 'Show description from "About This Category" post'
+  description: 'Show description from "About This Category" post.'
+
+show_category_logo:
+  default: true
+  description: 'Show category logo.'
 
 max_level:
   default: 3

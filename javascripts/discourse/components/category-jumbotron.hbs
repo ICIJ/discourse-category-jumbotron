@@ -1,23 +1,26 @@
 {{#if this.displayJumbotron}}
   <div class="category-jumbotron {{this.safeClass}}" style={{this.safeStyle}}>
     <div class="category-jumbotron__grid">
-      <div class="category-jumbotron__grid__logo aspect-image">
-        {{#if
-          (and
-            this.category.uploaded_logo.url this.category.uploaded_logo_dark.url
-          )
-        }}
-          <picture>
-            <source
-              srcset={{this.category.uploaded_logo_dark.url}}
-              media="(prefers-color-scheme: dark)"
-            />
-            <CdnImg @src={{this.uploaded_logo.url}} />
-          </picture>
-        {{else if this.category.uploaded_logo.url}}
-          <CdnImg @src={{this.category.uploaded_logo.url}} />
-        {{/if}}
-      </div>
+      {{#if (theme-setting "show_category_logo")}}
+        <div class="category-jumbotron__grid__logo aspect-image">
+          {{#if
+            (and
+              this.category.uploaded_logo.url
+              this.category.uploaded_logo_dark.url
+            )
+          }}
+            <picture>
+              <source
+                srcset={{this.category.uploaded_logo_dark.url}}
+                media="(prefers-color-scheme: dark)"
+              />
+              <CdnImg @src={{this.uploaded_logo.url}} />
+            </picture>
+          {{else if this.category.uploaded_logo.url}}
+            <CdnImg @src={{this.category.uploaded_logo.url}} />
+          {{/if}}
+        </div>
+      {{/if}}
       <div class="category-jumbotron__grid__content">
         <div class="category-jumbotron__grid__content__heading">
           <h2 class="category-jumbotron__grid__content__heading__name">
