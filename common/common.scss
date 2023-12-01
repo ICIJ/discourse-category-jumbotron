@@ -30,7 +30,7 @@
 
       &__heading {
         &__name {
-          display: flex;
+          display: inline-flex;
           align-items: baseline;
 
           .category-icon-widget-wrapper {
@@ -63,8 +63,20 @@
     }
   }
 
+  &--flex-column &__grid {
+    flex-direction: column;
+
+    &__content {
+      width: 100%;
+    }
+  }
+
   &--flex-column-reverse &__grid {
     flex-direction: column-reverse;
+
+    &__content {
+      width: 100%;
+    }
   }
 
   &--flex-row &__grid {
