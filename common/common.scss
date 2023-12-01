@@ -32,12 +32,13 @@
         &__name {
           display: flex;
           align-items: baseline;
-          
+
           .category-icon-widget-wrapper {
             display: inline-block;
           }
 
-          .d-icon, .category-icon {
+          .d-icon,
+          .category-icon {
             margin-right: 0.25rem;
           }
         }
