@@ -44,7 +44,9 @@ export default class CategoryJumbotron extends Component {
     return (
       this.currentRoutesMatch &&
       this.category &&
-      this.category.level <= settings.max_level
+      this.category.level <= settings.max_level &&
+      (!settings.hide_if_no_description ||
+        isPresent(this.category?.description))
     );
   }
 
