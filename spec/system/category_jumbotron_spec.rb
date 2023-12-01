@@ -39,14 +39,24 @@ RSpec.describe "Category Jumbotron", type: :system do
     expect(subcategory_jumbotron).to be_not_visible
   end
 
-  it "should not display category banner for category when `hide_if_no_description` setting is true and category has no description" do
+  it "should not display category jumbotron for category when `hide_if_no_description` setting is true and category has no description" do
     category.update!(description: "")
     theme.update_setting(:hide_if_no_description, true)
     theme.save!
 
     visit(category.url)
 
-    expect(category_banner).to be_not_visible
+    expect(subcategory_jumbotron).to be_not_visible
   end
 
+  it "should not display category jumbotron for categories that have been listed in `exceptions` setting" do
+    theme.update_setting(:exceptions, "#{category.name}|#{category_subcategory.name}")
+    theme.save!
+
+    visit(category.url)
+
+    expect(subcategory_jumbotron).to be_not_visible
+
+    visit(category_subcategory.url)
+  end
 end

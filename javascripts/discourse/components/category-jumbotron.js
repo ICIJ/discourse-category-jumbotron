@@ -44,9 +44,23 @@ export default class CategoryJumbotron extends Component {
     return (
       this.currentRoutesMatch &&
       this.category &&
-      this.category.level <= settings.max_level &&
-      (!settings.hide_if_no_description ||
-        isPresent(this.category?.description))
+      this.validCategoryLevel &&
+      this.validCategoryName &&
+      this.validCategoryDescription
+    );
+  }
+
+  get validCategoryLevel() {
+    return this.category?.level <= settings.max_level;
+  }
+
+  get validCategoryName() {
+    return !settings.exceptions.includes(this.category?.name);
+  }
+
+  get validCategoryDescription() {
+    return (
+      settings.hide_if_no_description || isPresent(this.category?.description)
     );
   }
 
