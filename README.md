@@ -16,6 +16,34 @@ This Discourse component offers a customizable jumbotron for category pages. Enh
 - **Logo Size Options**: Control the size of the category logo within the jumbotron.
 - **Color Layout Choices**: Select different color layouts for the jumbotron.
 
+## Preview
+
+**Bordered color layout with logo aligned on the end of the container**
+
+![](https://imgur.com/37rne5n.png)
+
+
+**Bordered color layout with logo aligned on the start of the container**
+
+![](https://imgur.com/56Potg5.png)
+
+**Fill color layout**
+
+![](https://imgur.com/IldUEZ1.png)
+
+**Fill color layout on a different plugin outlet**
+
+![](https://imgur.com/uDtMw79.png)
+
+**Fill color layout centered without logo**
+
+![](https://imgur.com/GE433k3.png)
+
+**Fill color layout centered with a big logo**
+
+![](https://imgur.com/zmJ7ckz.png)
+
+
 ## Settings
 
 1. **routes**
