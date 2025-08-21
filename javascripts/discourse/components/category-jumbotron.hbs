@@ -18,6 +18,8 @@
             </picture>
           {{else if this.category.uploaded_logo.url}}
             <CdnImg @src={{this.category.uploaded_logo.url}} />
+          {{else if this.category.uploaded_logo_placeholder.url}}
+            <CdnImg @src={{this.category.uploaded_logo_placeholder.url}} />      
           {{/if}}
         </div>
       {{/if}}
