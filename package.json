@@ -12,8 +12,8 @@
     "lint:eslint:fix": "yarn eslint --fix --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
     "lint:ember": "yarn ember-template-lint --no-error-on-unmatched-pattern javascripts",
     "lint:ember:fix": "yarn ember-template-lint --fix --no-error-on-unmatched-pattern javascripts",
-    "lint:prettify": "yarn prettier --list-different '{javascripts,common,mobile}/**/*.{scss,js,es6,hbs}'",
-    "lint:prettify:fix": "yarn prettier --write '{javascripts,common,mobile}/**/*.{scss,js,es6,hbs}'"
+    "lint:prettify": "yarn prettier --list-different '{javascripts,common,mobile}/**/*.{scss,js,es6,gjs}'",
+    "lint:prettify:fix": "yarn prettier --write '{javascripts,common,mobile}/**/*.{scss,js,es6,gjs}'"
   },
   "devDependencies": {
     "@discourse/lint-configs": "2.25.0",
