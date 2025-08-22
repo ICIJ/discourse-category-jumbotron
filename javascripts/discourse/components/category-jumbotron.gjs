@@ -4,6 +4,7 @@ import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import CdnImg from "discourse/components/cdn-img";
+import LightDarkImg from "discourse/components/light-dark-img";
 import icon from "discourse/helpers/d-icon";
 import isPresent from "../helpers/is-present";
 
@@ -45,8 +46,8 @@ export class CategoryJumbotron extends Component {
     return settings.show_category_logo;
   }
 
-  get hasLogo(){
-    return this.category.uploaded_logo?.url || this.category.uploaded_logo_dark?.url;
+  get hasLightAndDarkLogo(){
+    return this.category.uploaded_logo?.url && this.category.uploaded_logo_dark?.url;
   }
 
   @computed("category", "currentRoutesMatch")
@@ -113,15 +114,10 @@ get categoryIconComponent() {
           {{#if this.showCategoryLogo}}
             <div class="category-jumbotron__grid__logo aspect-image">
               {{#if this.hasLogo}}
-                <picture>
-                  <source
-                    srcset={{this.category.uploaded_logo_dark.url}}
-                    media="(prefers-color-scheme: dark)"
-                  />
-                  <CdnImg @src={{this.uploaded_logo.url}} />
-                </picture>
-              {{else if this.category.uploaded_logo.url}}
-                <CdnImg @src={{this.category.uploaded_logo.url}} />
+                <LightDarkImg
+                  @lightImg={{@category.uploaded_logo}}
+                  @darkImg={{@category.uploaded_logo_dark}}
+                />
               {{else if this.category.uploaded_logo_placeholder.url}}
                 <CdnImg @src={{this.category.uploaded_logo_placeholder.url}} />      
               {{/if}}
