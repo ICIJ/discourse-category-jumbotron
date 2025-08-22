@@ -113,6 +113,7 @@ export class CategoryJumbotron extends Component {
     }
     return [];
   }
+
   <template>
     {{#if this.displayJumbotron}}
       <div
