@@ -43,13 +43,19 @@ export class CategoryJumbotron extends Component {
   }
 
   get showCategoryLogo() {
-    return settings.show_category_logo;
+    return (
+      settings.show_category_logo && (this.hasLogo || this.hasLogoPlaceholder)
+    );
   }
 
-  get hasLightAndDarkLogo() {
+  get hasLogo() {
     return (
       this.category.uploaded_logo?.url && this.category.uploaded_logo_dark?.url
     );
+  }
+
+  get hasLogoPlaceholder() {
+    return !!this.category.uploaded_logo_placeholder?.url;
   }
 
   @computed("category", "currentRoutesMatch")
@@ -128,7 +134,7 @@ export class CategoryJumbotron extends Component {
                   @lightImg={{@category.uploaded_logo}}
                   @darkImg={{@category.uploaded_logo_dark}}
                 />
-              {{else if this.category.uploaded_logo_placeholder.url}}
+              {{else}}
                 <CdnImg @src={{this.category.uploaded_logo_placeholder.url}} />
               {{/if}}
             </div>
