@@ -42,12 +42,14 @@ export class CategoryJumbotron extends Component {
     return settings.show_category_icon && this.hasIconComponent;
   }
 
-  get showCategoryLogo(){
+  get showCategoryLogo() {
     return settings.show_category_logo;
   }
 
-  get hasLightAndDarkLogo(){
-    return this.category.uploaded_logo?.url && this.category.uploaded_logo_dark?.url;
+  get hasLightAndDarkLogo() {
+    return (
+      this.category.uploaded_logo?.url && this.category.uploaded_logo_dark?.url
+    );
   }
 
   @computed("category", "currentRoutesMatch")
@@ -79,7 +81,7 @@ export class CategoryJumbotron extends Component {
     return getOwner(this).hasRegistration("component:category-icon");
   }
 
-get categoryIconComponent() {
+  get categoryIconComponent() {
     return this.hasIconComponent ? "category-icon" : null;
   }
 
@@ -109,7 +111,10 @@ get categoryIconComponent() {
   }
   <template>
     {{#if this.displayJumbotron}}
-      <div class="category-jumbotron {{this.safeClass}}" style={{this.safeStyle}}>
+      <div
+        class="category-jumbotron {{this.safeClass}}"
+        style={{this.safeStyle}}
+      >
         <div class="category-jumbotron__grid">
           {{#if this.showCategoryLogo}}
             <div class="category-jumbotron__grid__logo aspect-image">
@@ -119,7 +124,7 @@ get categoryIconComponent() {
                   @darkImg={{@category.uploaded_logo_dark}}
                 />
               {{else if this.category.uploaded_logo_placeholder.url}}
-                <CdnImg @src={{this.category.uploaded_logo_placeholder.url}} />      
+                <CdnImg @src={{this.category.uploaded_logo_placeholder.url}} />
               {{/if}}
             </div>
           {{/if}}
@@ -131,7 +136,7 @@ get categoryIconComponent() {
                   <this.categoryIconComponent @category={{@category}} />
                 {{/if}}
                 {{#if this.displayLockIcon}}
-                  {{ icon "lock"}}
+                  {{icon "lock"}}
                 {{/if}}
                 {{this.category.name}}
               </h2>
@@ -139,7 +144,7 @@ get categoryIconComponent() {
             {{#if this.displayCategoryDescription}}
               <div class="category-jumbotron__grid__content__description">
                 <div class="cooked">
-                  {{ this.category.description }}
+                  {{this.category.description}}
                 </div>
               </div>
             {{/if}}
