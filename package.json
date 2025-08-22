@@ -6,14 +6,16 @@
   "author": "ICIJ",
   "license": "MIT",
   "scripts": {
-    "lint": "pnpm lint:eslint && pnpm lint:ember && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:eslint:fix && pnpm lint:ember:fix && pnpm lint:prettier:fix",
+    "lint": "pnpm lint:eslint && pnpm lint:ember && pnpm lint:prettier && pnpm lint:stylelint",
+    "lint:fix": "pnpm lint:eslint:fix && pnpm lint:ember:fix && pnpm lint:prettier:fix && pnpm lint:stylelint:fix",
     "lint:eslint": "pnpm eslint --ext .js,.gjs --no-error-on-unmatched-pattern {test,javascripts}",
     "lint:eslint:fix": "pnpm lint:eslint --fix",
     "lint:ember": "pnpm ember-template-lint --no-error-on-unmatched-pattern javascripts",
     "lint:ember:fix": "pnpm lint:ember --fix",
     "lint:prettier": "pnpm prettier --list-different '{javascripts,common,mobile}/**/*.{scss,js,es6,gjs}'",
-    "lint:prettier:fix": "pnpm lint:prettier --write"
+    "lint:prettier:fix": "pnpm lint:prettier --write",
+    "lint:stylelint": "pnpm stylelint --allow-empty-input '{javascripts,desktop,mobile,common,scss}/**/*.scss'",
+    "lint:stylelint:fix": "pnpm lint:stylelint --fix"
   },
   "devDependencies": {
     "@discourse/lint-configs": "2.25.0",
