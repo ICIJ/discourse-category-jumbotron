@@ -103,6 +103,10 @@ export class CategoryJumbotron extends Component {
     `);
   }
 
+  get categoryDescriptionSafe() {
+    return htmlSafe(this.category.description);
+  }
+
   routeNames(route) {
     if (route) {
       return [...this.routeNames(route.parent), route.name];
@@ -144,7 +148,7 @@ export class CategoryJumbotron extends Component {
             {{#if this.displayCategoryDescription}}
               <div class="category-jumbotron__grid__content__description">
                 <div class="cooked">
-                  {{this.category.description}}
+                  {{this.categoryDescriptionSafe}}
                 </div>
               </div>
             {{/if}}
