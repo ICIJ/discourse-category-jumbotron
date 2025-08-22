@@ -3,9 +3,9 @@ import { getOwner } from "@ember/application";
 import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import isPresent from "../helpers/is-present";
 import CdnImg from "discourse/components/cdn-img";
 import icon from "discourse/helpers/d-icon";
+import isPresent from "../helpers/is-present";
 
 export class CategoryJumbotron extends Component {
   @service router;
@@ -42,11 +42,11 @@ export class CategoryJumbotron extends Component {
   }
 
   get showCategoryLogo(){
-    return settings.show_category_logo
+    return settings.show_category_logo;
   }
 
   get hasLogo(){
-    return this.category.uploaded_logo?.url || this.category.uploaded_logo_dark?.url
+    return this.category.uploaded_logo?.url || this.category.uploaded_logo_dark?.url;
   }
 
   @computed("category", "currentRoutesMatch")
@@ -110,11 +110,9 @@ get categoryIconComponent() {
     {{#if this.displayJumbotron}}
       <div class="category-jumbotron {{this.safeClass}}" style={{this.safeStyle}}>
         <div class="category-jumbotron__grid">
-          {{#if this.hasLogo}}
+          {{#if this.showCategoryLogo}}
             <div class="category-jumbotron__grid__logo aspect-image">
-              {{#if
-                this.hasLogo
-              }}
+              {{#if this.hasLogo}}
                 <picture>
                   <source
                     srcset={{this.category.uploaded_logo_dark.url}}
