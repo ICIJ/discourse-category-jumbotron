@@ -4,8 +4,10 @@ import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import isPresent from "../helpers/is-present";
+import CdnImg from "discourse/components/cdn-img";
+import icon from "discourse/helpers/d-icon";
 
-export default class CategoryJumbotron extends Component {
+export class CategoryJumbotron extends Component {
   @service router;
   @service siteSettings;
   @service currentCategory;
@@ -39,6 +41,14 @@ export default class CategoryJumbotron extends Component {
     return settings.show_category_icon && this.hasIconComponent;
   }
 
+  get showCategoryLogo(){
+    return settings.show_category_logo
+  }
+
+  get hasLogo(){
+    return this.category.uploaded_logo?.url || this.category.uploaded_logo_dark?.url
+  }
+
   @computed("category", "currentRoutesMatch")
   get displayJumbotron() {
     return (
@@ -68,6 +78,10 @@ export default class CategoryJumbotron extends Component {
     return getOwner(this).hasRegistration("component:category-icon");
   }
 
+get categoryIconComponent() {
+    return this.hasIconComponent ? "category-icon" : null;
+  }
+
   get safeStyle() {
     return htmlSafe(`
       --category-color: #${this.category.color};
@@ -92,4 +106,52 @@ export default class CategoryJumbotron extends Component {
     }
     return [];
   }
+  <template>
+    {{#if this.displayJumbotron}}
+      <div class="category-jumbotron {{this.safeClass}}" style={{this.safeStyle}}>
+        <div class="category-jumbotron__grid">
+          {{#if this.hasLogo}}
+            <div class="category-jumbotron__grid__logo aspect-image">
+              {{#if
+                this.hasLogo
+              }}
+                <picture>
+                  <source
+                    srcset={{this.category.uploaded_logo_dark.url}}
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <CdnImg @src={{this.uploaded_logo.url}} />
+                </picture>
+              {{else if this.category.uploaded_logo.url}}
+                <CdnImg @src={{this.category.uploaded_logo.url}} />
+              {{else if this.category.uploaded_logo_placeholder.url}}
+                <CdnImg @src={{this.category.uploaded_logo_placeholder.url}} />      
+              {{/if}}
+            </div>
+          {{/if}}
+          <div class="category-jumbotron__grid__content">
+            <div class="category-jumbotron__grid__content__heading">
+              <h2 class="category-jumbotron__grid__content__heading__name">
+                {{#if this.categoryIconComponent}}
+                  {{! For compatibility with https://meta.discourse.org/t/category-icons/104683}}
+                  <this.categoryIconComponent @category={{@category}} />
+                {{/if}}
+                {{#if this.displayLockIcon}}
+                  {{ icon "lock"}}
+                {{/if}}
+                {{this.category.name}}
+              </h2>
+            </div>
+            {{#if this.displayCategoryDescription}}
+              <div class="category-jumbotron__grid__content__description">
+                <div class="cooked">
+                  {{ this.category.description }}
+                </div>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  </template>
 }
