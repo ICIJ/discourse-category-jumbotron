@@ -6,14 +6,14 @@
   "author": "ICIJ",
   "license": "MIT",
   "scripts": {
-    "lint": "yarn lint:eslint && yarn lint:ember && yarn lint:prettify",
-    "lint:fix": "yarn lint:eslint:fix && yarn lint:ember:fix && yarn lint:prettify:fix",
-    "lint:eslint": "yarn eslint --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
-    "lint:eslint:fix": "yarn eslint --fix --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
-    "lint:ember": "yarn ember-template-lint --no-error-on-unmatched-pattern javascripts",
-    "lint:ember:fix": "yarn ember-template-lint --fix --no-error-on-unmatched-pattern javascripts",
-    "lint:prettify": "yarn prettier --list-different '{javascripts,common,mobile}/**/*.{scss,js,es6,gjs}'",
-    "lint:prettify:fix": "yarn prettier --write '{javascripts,common,mobile}/**/*.{scss,js,es6,gjs}'"
+    "lint": "pnpm lint:eslint && pnpm lint:ember && pnpm lint:prettify",
+    "lint:fix": "pnpm lint:eslint:fix && pnpm lint:ember:fix && pnpm lint:prettify:fix",
+    "lint:eslint": "pnpm eslint --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
+    "lint:eslint:fix": "pnpm eslint --fix --ext .js,.js.es6 --no-error-on-unmatched-pattern test javascripts",
+    "lint:ember": "pnpm ember-template-lint --no-error-on-unmatched-pattern javascripts",
+    "lint:ember:fix": "pnpm ember-template-lint --fix --no-error-on-unmatched-pattern javascripts",
+    "lint:prettify": "pnpm prettier --list-different '{javascripts,common,mobile}/**/*.{scss,js,es6,gjs}'",
+    "lint:prettify:fix": "pnpm prettier --write '{javascripts,common,mobile}/**/*.{scss,js,es6,gjs}'"
   },
   "devDependencies": {
     "@discourse/lint-configs": "2.25.0",
