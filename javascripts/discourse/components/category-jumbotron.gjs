@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { getOwner } from "@ember/application";
 import { computed } from "@ember/object";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import CdnImg from "discourse/components/cdn-img";
 import LightDarkImg from "discourse/components/light-dark-img";
