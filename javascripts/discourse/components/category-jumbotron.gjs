@@ -165,3 +165,5 @@ export class CategoryJumbotron extends Component {
     {{/if}}
   </template>
 }
+
+export default CategoryJumbotron
