@@ -166,4 +166,4 @@ export class CategoryJumbotron extends Component {
   </template>
 }
 
-export default CategoryJumbotron
+export default CategoryJumbotron;
