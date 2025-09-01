@@ -150,6 +150,18 @@ Follow these steps to add this component to your Discourse forum:
 4. Input the URL of this repository: `https://github.com/ICIJ/discourse-category-jumbotron`
 5. Click on `Install`.
 
+## Sync with upstream
+
+This theme component is built on the top of [Discourse Theme Skeleton](https://github.com/discourse/discourse-theme-skeleton).
+
+To rebase your fork with the latest changes from upstream:
+
+```bash
+git remote add upstream git@github.com:discourse/discourse-theme-skeleton.git
+git fetch upstream
+git rebase upstream/main
+```
+
 ## Contributing
 
 Your contributions are welcome! Please feel free to submit pull requests or issues on the repository to improve the component or fix problems.
