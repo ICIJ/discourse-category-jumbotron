@@ -1,10 +1,7 @@
 {
   "name": "Category Jumbotron",
   "component": true,
-  "authors": "ICIJ",
-  "license_url": "TODO",
-  "about_url": "TODO",
-  "learn_more": "TODO",
+  "authors": "ICIJ <engineering@icij.org>",
   "theme_version": "0.0.1",
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
