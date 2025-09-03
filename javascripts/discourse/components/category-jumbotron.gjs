@@ -49,9 +49,7 @@ export class CategoryJumbotron extends Component {
   }
 
   get hasLogo() {
-    return (
-      this.category.uploaded_logo?.url && this.category.uploaded_logo_dark?.url
-    );
+    return !!this.category.uploaded_logo?.url;
   }
 
   get hasLogoPlaceholder() {
@@ -131,10 +129,10 @@ export class CategoryJumbotron extends Component {
             <div class="category-jumbotron__grid__logo aspect-image">
               {{#if this.hasLogo}}
                 <LightDarkImg
-                  @lightImg={{@category.uploaded_logo}}
-                  @darkImg={{@category.uploaded_logo_dark}}
+                  @lightImg={{this.category.uploaded_logo}}
+                  @darkImg={{this.category.uploaded_logo_dark}}
                 />
-              {{else}}
+              {{else if this.hasLogoPlaceholder}}
                 <CdnImg @src={{this.category.uploaded_logo_placeholder.url}} />
               {{/if}}
             </div>
